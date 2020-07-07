@@ -7,12 +7,14 @@ let lvl = audio.createGain();
 let muted = true;
 let started = false;
 
-// init Audiocontext
-lvl.gain.value = 0;
-osc.connect(lvl);
-lvl.connect(audio.destination);
-
 // methods
+// init Audiocontext
+const init = () => {
+  lvl.gain.value = 0;
+  osc.connect(lvl);
+  lvl.connect(audio.destination);
+}
+
 const handler = () => {
   const { beta } = event;
   const ratio = (87 - beta) / 86
@@ -27,12 +29,14 @@ const toggleSound = () => {
         DeviceOrientationEvent.requestPermission().then(response => {
           if (response == 'granted') {
             window.addEventListener('deviceorientation', handler);
+            init();
             osc.start(0);
             started = true;
           }
         }).catch(console.error)
       } else {
         window.addEventListener('deviceorientation', handler);
+        init();
         osc.start(0);
         started = true;
       }
