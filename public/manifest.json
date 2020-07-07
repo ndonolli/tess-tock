@@ -1,6 +1,6 @@
 {
     "name": "Theremin App - The Quaalords",
-    "short_name": "quaalords-theremin",
+    "short_name": "Theremin",
     "start_url": "/",
     "display": "standalone",
     "orientation" : "portrait",
