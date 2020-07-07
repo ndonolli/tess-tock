@@ -4,7 +4,7 @@ class Toggler  {
     this._muted = true;
   }
 
-  toggle = () => {
+  toggle() {
     if (this._muted) {
       this._muted = false;
       this.btn.classList.add('active');
@@ -53,7 +53,7 @@ class Theremin {
     this.lvl.disconnect(this.audio.destination);
   }
 
-  register = () => {
+  register() {
     if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
       DeviceOrientationEvent.requestPermission().then(response => {
         if (response == 'granted') {
