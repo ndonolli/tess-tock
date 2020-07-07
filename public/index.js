@@ -54,7 +54,7 @@ class Theremin {
   }
 
   register = () => {
-    if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') {
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
       DeviceOrientationEvent.requestPermission().then(response => {
         if (response == 'granted') {
           window.addEventListener('deviceorientation', this._handler.bind(this));
