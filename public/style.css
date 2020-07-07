@@ -41,7 +41,7 @@ body {
 #app {
   height: 100vh;
   width: 100vw;
-  background-image: url(https://res.cloudinary.com/dv834swj3/image/upload/v1574631721/theremin_app_main_kfpilu.jpg);
+  background-image: url(backdrop.jpg);
   background-size: cover;
   z-index: 1;
 }
