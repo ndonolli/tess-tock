@@ -6,6 +6,7 @@ let osc = audio.createOscillator();
 let lvl = audio.createGain();
 let muted = true;
 let started = false;
+let setOrientationPermission = false;
 
 // methods
 // init Audiocontext
@@ -27,12 +28,12 @@ const init = () => {
 
 const toggleSound = () => {
   if (!started) {
-    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function' 
+        && !setOrientationPermission) {
       DeviceOrientationEvent.requestPermission().then(response => {
-        console.log(response)
         if (response == 'granted') {
-          init();
-          toggleSound();
+          window.addEventListener('deviceorientation', handler);
+          setOrientationPermission = true;
         }
       }).catch(console.error)
     } else {
