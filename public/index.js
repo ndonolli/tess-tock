@@ -26,28 +26,32 @@ const init = () => {
 }
 
 const toggleSound = () => {
-  if (muted) {
-    if (!started) {
-      if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-        DeviceOrientationEvent.requestPermission().then(response => {
-          if (response == 'granted') {
-            init();
-          }
-        }).catch(console.error)
-      } else {
-        init();
-      }
+  if (!started) {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission().then(response => {
+        if (response == 'granted') {
+          init();
+          toggleSound();
+        }
+      }).catch(console.error)
+    } else {
+      init();
+      toggleSound();
     }
-    lvl.gain.value = 1;
-    muted = false;
-    btn.classList.add('active');
-    btn.innerHTML = 'Turn that shit off!';
 
   } else {
-    lvl.gain.value = 0;
-    muted = true;
-    btn.classList.remove('active');
-    btn.innerHTML = 'Start';
+    if (muted) {
+      lvl.gain.value = 1;
+      muted = false;
+      btn.classList.add('active');
+      btn.innerHTML = 'Turn that shit off!';
+
+    } else {
+      lvl.gain.value = 0;
+      muted = true;
+      btn.classList.remove('active');
+      btn.innerHTML = 'Start';
+    }
   }
 }
 
