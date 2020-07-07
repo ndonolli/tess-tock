@@ -1,0 +1,9 @@
+{
+    "name": "Theremin App - The Quaalords",
+    "short_name": "quaalords-theremin",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation" : "portrait",
+    "background_color": "#d03941",
+    "theme_color": "#d03941"
+}

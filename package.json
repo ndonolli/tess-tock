@@ -1,0 +1,9 @@
+{
+  "name": "quaalords-theremin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/mathjs": "^6.0.2",
+    "mathjs": "^6.2.2"
+  }
+}
