@@ -77,7 +77,14 @@ const clickHandler = () => {
   }
   toggler.muted ? theremin.start() : theremin.stop();
   toggler.toggle();
-
 }
 
 window.clickHandler = clickHandler;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.prompt();
+  e.userChoice.then((choice) => {
+    if (choice.outcome === 'accepted') {
+      console.log('Thank you!')
+    }
+  })
+});
