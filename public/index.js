@@ -6,6 +6,7 @@ let osc = audio.createOscillator();
 let lvl = audio.createGain();
 let muted = true;
 let started = false;
+let disabled = false;
 
 // methods
 // init Audiocontext
@@ -22,35 +23,41 @@ const handler = () => {
   osc.frequency.value = fv;
 }
 
-const toggleSound = () => {
-  if (muted) {
-    if (!started) {
-      if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-        DeviceOrientationEvent.requestPermission().then(response => {
-          if (response == 'granted') {
-            window.addEventListener('deviceorientation', handler);
-            init();
-            osc.start(0);
-            started = true;
-          }
-        }).catch(console.error)
-      } else {
-        window.addEventListener('deviceorientation', handler);
-        init();
-        osc.start(0);
-        started = true;
-      }
+if (DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') {
+  disabled = true;
+  DeviceOrientationEvent.requestPermission().then(response => {
+    if (response == 'granted') {
+      window.addEventListener('deviceorientation', handler);
+      init();
+      osc.start(0);
+      started = true;
+      disabled = false;
     }
-    lvl.gain.value = 1;
-    muted = false;
-    btn.classList.add('active');
-    btn.innerHTML = 'Turn that shit off!';
+  }).catch(console.error)
+}
+
+const toggleSound = () => {
+  if (disabled) {
 
   } else {
-    lvl.gain.value = 0;
-    muted = true;
-    btn.classList.remove('active');
-    btn.innerHTML = 'Start';
+    if (muted) {
+      if (!started) {
+          window.addEventListener('deviceorientation', handler);
+          init();
+          osc.start(0);
+          started = true;
+      }
+      lvl.gain.value = 1;
+      muted = false;
+      btn.classList.add('active');
+      btn.innerHTML = 'Turn that shit off!';
+
+    } else {
+      lvl.gain.value = 0;
+      muted = true;
+      btn.classList.remove('active');
+      btn.innerHTML = 'Start';
+    }
   }
 }
 
