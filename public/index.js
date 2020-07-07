@@ -24,7 +24,7 @@ const toggleSound = () => {
   if (muted) {
     if (!started) {
       if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-        DeviceOrientationEvent.requestPermission().then(() => {
+        DeviceOrientationEvent.requestPermission().then(response => {
           if (response == 'granted') {
             window.addEventListener('deviceorientation', handler);
             osc.start(0);
