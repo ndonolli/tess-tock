@@ -13,6 +13,13 @@ osc.connect(lvl);
 lvl.connect(audio.destination);
 
 // methods
+const handler = () => {
+  const { beta } = event;
+  const ratio = (87 - beta) / 86
+  const fv = (55 + (1705 * ratio)); // 5 octaves between C1 and C6
+  osc.frequency.value = fv;
+}
+
 const toggleSound = () => {
   if (muted) {
     if (!started) {
@@ -41,13 +48,6 @@ const toggleSound = () => {
     btn.classList.remove('active');
     btn.innerHTML = 'Start';
   }
-}
-
-const handler = () => {
-  const { beta } = event;
-  const ratio = (87 - beta) / 86
-  const fv = (55 + (1705 * ratio)); // 5 octaves between C1 and C6
-  osc.frequency.value = fv;
 }
 
 window.toggleSound = toggleSound;
