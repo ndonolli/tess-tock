@@ -79,7 +79,6 @@ const clickHandler = () => {
   toggler.toggle();
 }
 
-window.clickHandler = clickHandler;
 window.addEventListener('beforeinstallprompt', (e) => {
   e.prompt();
   e.userChoice.then((choice) => {
@@ -88,3 +87,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
     }
   })
 });
+
+window.app = {
+  clickHandler
+};
