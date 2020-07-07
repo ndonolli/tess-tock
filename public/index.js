@@ -31,7 +31,7 @@ const toggleSound = () => {
       DeviceOrientationEvent.requestPermission().then(response => {
         if (response == 'granted') {
           init();
-          toggleSound();
+          location.reload();
         }
       }).catch(console.error)
     } else {
