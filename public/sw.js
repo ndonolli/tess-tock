@@ -8,7 +8,7 @@ const PRECACHE_URLS = [
   'style.css',
   'index.js',
   'backdrop.jpg',
-  'tesstock-icon.png'
+  'icon.png'
 ];
 
 // The install handler takes care of precaching the resources we always need.

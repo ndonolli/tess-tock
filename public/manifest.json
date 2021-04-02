@@ -8,7 +8,7 @@
     "theme_color": "#000000",
     "icons": [
         {
-          "src": "tesstock-icon.png",
+          "src": "icon.png",
           "type": "image/png",
           "sizes": "192x192"
         }
