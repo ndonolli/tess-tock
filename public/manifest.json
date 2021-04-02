@@ -1,21 +1,16 @@
 {
-    "name": "Theremin App - The Quaalords",
-    "short_name": "Theremin",
+    "name": "TessTock",
+    "short_name": "TessTock",
     "start_url": "/",
     "display": "standalone",
     "orientation" : "portrait",
-    "background_color": "#d03941",
-    "theme_color": "#d03941",
+    "background_color": "#000000",
+    "theme_color": "#000000",
     "icons": [
         {
-          "src": "icon.png",
+          "src": "tesstock-icon.png",
           "type": "image/png",
           "sizes": "192x192"
-        },
-        {
-          "src": "backdrop.jpg",
-          "type": "image/jpg",
-          "sizes": "512x512"
         }
     ]
 }

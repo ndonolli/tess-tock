@@ -7,7 +7,8 @@ const PRECACHE_URLS = [
   './', // Alias for index.html
   'style.css',
   'index.js',
-  'backdrop.jpg'
+  'backdrop.jpg',
+  'video.mp4'
 ];
 
 // The install handler takes care of precaching the resources we always need.
