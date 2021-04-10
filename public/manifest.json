@@ -1,6 +1,6 @@
 {
-    "name": "TessTock",
-    "short_name": "TessTock",
+    "name": "TessTok",
+    "short_name": "TessTok",
     "start_url": "/",
     "display": "standalone",
     "orientation" : "portrait",
